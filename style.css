@@ -20,7 +20,9 @@ body {
     z-index: 1;
 }
 
-.btn-add, .submit {
+.btn-add, 
+.submit,
+.remove-btn {
     border: 1px solid black;
     background-color: #f0eef1;
     padding: 1em 2em;
@@ -28,8 +30,15 @@ body {
     font-weight: bold;
 }
 
+.remove-btn {
+    width: fit-content;
+    align-self: center;
+    margin-top: 1em;
+}
+
 .btn-add:hover,
-.submit:hover {
+.submit:hover,
+.remove-btn:hover {
     background-color: black;
     color: white;
     cursor: pointer;
@@ -38,6 +47,23 @@ body {
 .book-container {
     background-color: #f0eef1;
     flex: 1;
+    display: grid;
+    gap: 4em;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 3em;
+}
+
+.card {
+    background-color: white;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 2.5em;
+    gap: 1em;
+    border-radius: 1em;
+    box-shadow: 0 0 1em rgba(0 0 0 / .3);
 }
 
 .modal {
