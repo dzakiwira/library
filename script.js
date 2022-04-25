@@ -39,15 +39,15 @@ function updateBookToLibrary() {
       card.classList.add("card");
   
       title.classList.add("book-title");
-      title.textContent = `Title: ${book.title}`;
+      title.textContent = book.title;
       card.appendChild(title);
   
       author.classList.add("book-author");
-      author.textContent = `Author: ${book.author}`;
+      author.textContent = `Written by ${book.author}`;
       card.appendChild(author);
   
       pages.classList.add("book-pages");
-      pages.textContent = `Pages: ${book.pages}`;
+      pages.textContent = `${book.pages} pages`;
       card.appendChild(pages);
       
       isRead.classList.add("book-isRead");
@@ -73,7 +73,9 @@ openModal.addEventListener('click', () => {
     modal.showModal();
 })
 
-let newBook = new Book('Dune', 'Frank Herbert', 421, 'Read');
-myLibrary.push(newBook);
+let newBook1 = new Book('Dune', 'Frank Herbert', 421, 'Read');
+myLibrary.push(newBook1);
+let newBook2 = new Book('Normal People', 'Sally Rooney', 256, 'Read');
+myLibrary.push(newBook2);
 
 updateBookToLibrary();
