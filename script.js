@@ -3,8 +3,10 @@ const openModal = document.querySelector('.btn-add');
 const submit = document.querySelector('.submit');
 const form = document.querySelector('.form');
 
+// Array for housing book objects
 let myLibrary = [];
 
+// Object Book constructor
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -12,11 +14,13 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+// Adds newly created book object to myLibrary array
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 }
 
+// Gets values from form on submit
 function getUserBook() {
     let userTitle = document.getElementById('title').value;
     let userAuthor = document.getElementById('author').value;
@@ -26,16 +30,19 @@ function getUserBook() {
     updateBookToLibrary();
 }
 
+// Updates book-container with whatever is currently in the myLibrary array
 function updateBookToLibrary() {
     document.querySelector(".book-container").textContent = "";
     myLibrary.forEach((book) => {
+    
+      // Create divs and buttons to house info
       let card = document.createElement("div");
       let title = document.createElement("div");
       let author = document.createElement("div");
       let pages = document.createElement("div");
       let isRead = document.createElement("div");
       let removeButton = document.createElement("button");
-  
+    
       card.classList.add("card");
   
       title.classList.add("book-title");
@@ -68,14 +75,16 @@ function updateBookToLibrary() {
     });
   }
 
+// Listener for add button to pop up form modal
 openModal.addEventListener('click', () => {
     form.reset();
     modal.showModal();
 })
 
+// Default book objects to populate array
 let newBook1 = new Book('Dune', 'Frank Herbert', 421, 'Read');
 myLibrary.push(newBook1);
 let newBook2 = new Book('Normal People', 'Sally Rooney', 256, 'Read');
 myLibrary.push(newBook2);
-
+// display the books on page 
 updateBookToLibrary();
